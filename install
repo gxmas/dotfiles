@@ -10,7 +10,7 @@ print_usage () {
 listfiles () {
     for file in $(find $1 -maxdepth 1 -name ".*")
     do
-	printf "$(basename $file) "
+        printf "$(basename $file) "
     done
 }
 
@@ -27,10 +27,10 @@ copy_dotdir () {
 while (( $# > 0 ))
 do
     case $1 in
-	--builddir=*) BUILDDIR=${1#--builddir=} ;;
-	-*) print_usage; exit 1 ;;
-	--) break ;;
-	*)  break ;;
+        --builddir=*) BUILDDIR=${1#--builddir=} ;;
+        -*) print_usage; exit 1 ;;
+        --) break ;;
+        *)  break ;;
     esac
     shift
 done
@@ -49,11 +49,15 @@ filename=$filename.tar.xz
 
 [ ! -d $BUILDDIR ] && mkdir $BUILDDIR
 
-copy_dotfile bashrc
 copy_dotfile bash_profile
+copy_dotfile bashrc
+copy_dotdir  bashrc.d
+
+copy_dotfile vimrc
+copy_dotdir  vim
+
 copy_dotfile ghci
-copy_dotdir bashrc.d
-copy_dotdir stack
+copy_dotdir  stack
 
 copy_dotfile tmux.conf
 

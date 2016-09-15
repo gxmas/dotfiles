@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/gnoel/.local'
+let g:netrw_dirhist_2='/tmp/git-difftool.ASKG1/left'
+let g:netrw_dirhist_3='/tmp/git-difftool.ASKG1/right'
+let g:netrw_dirhist_4='/tmp/git-difftool.ASKG1/right/home'
+let g:netrw_dirhist_5='/tmp/git-difftool.ASKG1/right/home/config'
+let g:netrw_dirhist_6='/tmp/git-difftool.ASKG1/right/home/config/bash_completion.d'
+let g:netrw_dirhist_7='/tmp/git-difftool.ASKG1/right/home/config'
+let g:netrw_dirhist_8='/tmp/git-difftool.ASKG1/right/home'
+let g:netrw_dirhist_9='/tmp/git-difftool.ASKG1/right/home/stack'
