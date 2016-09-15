@@ -61,4 +61,6 @@ copy_dotdir  stack
 
 copy_dotfile tmux.conf
 
+copy_dotfile gitconfig
+
 tar cvJf $filename -C $BUILDDIR $(listfiles $BUILDDIR)

@@ -1,0 +1,48 @@
+[user]
+	name = Geoffrey Noel
+	email = noel.geoff@gmail.com
+	signingkey = 1D09D86CCE10A515
+
+[core]
+	editor = emacs -nw --quick -l /home/gnoel/.git-commit-init.el
+	autocrlf = input
+
+[color]
+	ui = true
+	status = true
+	branch = true
+
+[diff]
+	tool = kompare
+
+[merge]
+        tool = kompare
+
+[color "grep"]
+	function = yellow
+	filename = magenta
+	linenumber = white
+
+[push]
+	default = simple
+
+[log]
+	date = local
+
+[alias]
+	ss = status -s
+
+        caa = commit -a --amend -C HEAD
+
+        mffo = merge --ff-only
+
+        changes = show --pretty=\"format:\" --name-only
+	files = diff-tree --no-commit-id --name-only -r
+
+        ls = log --pretty='format:%C(yellow)%h %C(green)%an %Creset%s'
+        lsd = log --pretty='format:%C(yellow)%h %C(green)%an %C(blue)%ar %Creset%s'
+
+	mlog = log --author=gnoel
+
+	dog = log --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	dogs = log --color --graph --simplify-by-decoration --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
