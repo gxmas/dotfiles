@@ -1,0 +1,4 @@
+[ -n "$BASHRC_DBG" ] && echo "####   D I R C O L O R S"
+
+DIRCOLORS=/etc/profile.d/coreutils-dircolors.sh
+[ -x $DIRCOLORS ] && source $DIRCOLORS

@@ -1,0 +1,58 @@
+#!/usr/bin/bash
+
+SRCDIR=$PWD
+BUILDDIR=build
+
+print_usage () {
+    printf "usage: $(basename $0) <filename>\n"
+}
+
+listfiles () {
+    for file in $(find $1 -maxdepth 1 -name ".*")
+    do
+	printf "$(basename $file) "
+    done
+}
+
+copy_dotfile () {
+    cp $SRCDIR/$1 $BUILDDIR/.$1
+}
+
+copy_dotdir () {
+    mkdir -p $BUILDDIR/.$1
+    cp -r $SRCDIR/$1/* $BUILDDIR/.$1
+}
+
+# Get options
+while (( $# > 0 ))
+do
+    case $1 in
+	--builddir=*) BUILDDIR=${1#--builddir=} ;;
+	-*) print_usage; exit 1 ;;
+	--) break ;;
+	*)  break ;;
+    esac
+    shift
+done
+
+# Get arguments
+filename=$1
+
+# Check options and arguments
+if [ -z "$filename" ]
+then
+    echo "error: missing filename argument"
+    exit 1
+fi
+
+filename=$filename.tar.xz
+
+[ ! -d $BUILDDIR ] && mkdir $BUILDDIR
+
+copy_dotfile bashrc
+copy_dotfile bash_profile
+copy_dotfile ghci
+copy_dotdir bashrc.d
+copy_dotdir stack
+
+tar cvJf $filename -C $BUILDDIR $(listfiles $BUILDDIR)

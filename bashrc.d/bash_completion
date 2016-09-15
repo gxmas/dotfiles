@@ -1,0 +1,19 @@
+[ -n "$BASHRC_DBG" ] && echo "####   B A S H _ C O M P L E T I O N"
+
+__config_bash_completion_system () {
+    local BCPATH=/usr/share/bash-completion/bash_completion
+    __do_ifread $BCPATH source $BCPATH
+}
+
+__config_bash_completion_user () {
+    for script in ${BASHRC_PATH:-$HOME/.bashrc.d}/bash_completion.d/*
+    do
+	source $script
+    done
+}
+
+if shopt -q progcomp
+then
+    [ ! __is_loginshell ] && __config_bash_completion_system
+    __config_bash_completion_user
+fi
