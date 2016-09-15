@@ -55,4 +55,6 @@ copy_dotfile ghci
 copy_dotdir bashrc.d
 copy_dotdir stack
 
+copy_dotfile tmux.conf
+
 tar cvJf $filename -C $BUILDDIR $(listfiles $BUILDDIR)
