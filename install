@@ -53,6 +53,8 @@ copy_dotfile bash_profile
 copy_dotfile bashrc
 copy_dotdir  bashrc.d
 
+copy_dotdir local
+
 copy_dotfile vimrc
 copy_dotdir  vim
 
