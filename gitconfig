@@ -4,7 +4,7 @@
 	signingkey = 1D09D86CCE10A515
 
 [core]
-	editor = emacs -nw --quick -l /home/gnoel/.git-commit-init.el
+	editor = emacs -nw --quick -l /home/gnoel/.emacs.d/.git-commit-init.el
 	autocrlf = input
 
 [color]
