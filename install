@@ -63,4 +63,6 @@ copy_dotfile tmux.conf
 
 copy_dotfile gitconfig
 
+copy_dotdir emacs.d
+
 tar cvJf $filename -C $BUILDDIR $(listfiles $BUILDDIR)
